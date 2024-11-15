@@ -23,6 +23,7 @@ accordionBtns.forEach((accordion) => {
       content.style.maxHeight = null;
       // Fix: Set aria-hidden to true
       content.setAttribute("aria-hidden", "true");
+
     } else {
       //if the accordion is currently closed
       content.style.maxHeight = content.scrollHeight + "px";
@@ -30,5 +31,9 @@ accordionBtns.forEach((accordion) => {
       content.setAttribute("aria-hidden", "false");
       console.log(content.style.maxHeight);
     }
+    
+    // Fix: Update aria-expanded attribute on the accordion button
+    const isExpanded = this.getAttribute("aria-expanded") === "true";
+    this.setAttribute("aria-expanded", !isExpanded);
   };
 });
