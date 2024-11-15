@@ -21,9 +21,13 @@ accordionBtns.forEach((accordion) => {
     if (content.style.maxHeight) {
       //this is if the accordion is open
       content.style.maxHeight = null;
+      // Fix: Set aria-hidden to true
+      content.setAttribute("aria-hidden", "true");
     } else {
       //if the accordion is currently closed
       content.style.maxHeight = content.scrollHeight + "px";
+      // Fix: Set aria-hidden to false
+      content.setAttribute("aria-hidden", "false");
       console.log(content.style.maxHeight);
     }
   };
